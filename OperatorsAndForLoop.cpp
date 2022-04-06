@@ -198,3 +198,62 @@ int main() {
 	
 }
 
+
+// Decimal to Binary
+
+#include<iostream>
+using namespace std;
+
+int main() {
+	// Write your code here
+    
+    int n;
+    cin>>n;
+    long binary = 0;
+    long pow = 1;
+    
+    while (n > 0){
+        int digit = n%2;
+        binary += digit * pow;
+        pow *= 10;
+        n = n/2;
+    }
+	
+	
+// Check Number sequence
+
+#include<iostream>
+using namespace std;
+int main() {
+    int n;
+    cin >> n;
+    int prev;
+    cin >> prev;
+    int count = 2, current;
+    bool isDec = true; 
+    while(count <= n) {
+        cin >> current;
+        if(current == prev) {
+            cout << "false";
+            return 0;
+        } 
+        count++;
+        if(current < prev) { 
+            if(isDec == false) {
+                cout << "false";
+                return 0;
+            }
+        }
+        else {
+            if(isDec == true) {
+                isDec = false;
+            }
+        }
+        prev = current;
+    }
+    cout << "true";
+}
+    cout<<binary;
+}
+
+
