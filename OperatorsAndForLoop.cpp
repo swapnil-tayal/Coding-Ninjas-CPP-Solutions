@@ -218,7 +218,10 @@ int main() {
         pow *= 10;
         n = n/2;
     }
-	
+    cout<<binary;
+}
+
+
 	
 // Check Number sequence
 
