@@ -112,3 +112,84 @@ bool isBalanced(string expression)
     }return true;
     
 }
+
+
+
+// Queue Using LL
+
+/************************************************************
+ 
+    Following is the structure of the node class 
+ 
+    class Node {
+    	public :
+    	int data;
+    	Node *next;
+
+    	Node(int data) {
+        	this->data = data;
+        	next = NULL;
+    	}
+	};
+
+**************************************************************/
+
+class Queue {
+    
+    Node *head;
+    Node *tail;
+    int size;
+    
+   public:
+    Queue() {
+        head = NULL;
+        tail = NULL;
+        size = 0;
+	}
+	
+	/*----------------- Public Functions of Stack -----------------*/
+
+	int getSize() {
+        return size;
+		// Implement the getSize() function
+	}
+
+    bool isEmpty() {
+        return size == 0;
+		// Implement the isEmpty() function
+	}
+
+    void enqueue(int data) {
+        Node* temp = new Node(data);
+        if (head != NULL){
+            tail->next = temp;
+            tail = temp;
+        }else{
+            head = temp;
+            tail = temp;
+        }
+        size++;
+		// Implement the enqueue() function
+	}
+
+    int dequeue() {
+        if (isEmpty()){
+            return -1;
+        }
+        int ans = head->data;
+        Node* temp = head;
+        head = head->next;
+        delete temp;
+        size--;
+        return ans;
+        // Implement the dequeue() function
+    }
+
+    int front() {
+        if (isEmpty()){
+            return -1;
+        }
+        return head->data;
+        // Implement the front() function
+    }
+};
