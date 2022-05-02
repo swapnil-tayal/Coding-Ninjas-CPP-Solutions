@@ -193,3 +193,65 @@ class Queue {
         // Implement the front() function
     }
 };
+
+
+
+// Reverse a Stack
+
+#include <stack>
+
+void reverseStack(stack<int> &input, stack<int> &extra) {
+    //Write your code here
+    while (!input.empty()){
+        extra.push(input.top());
+        input.pop();
+    }
+    input = extra;
+}
+
+
+// Reverse Queue
+
+#include <queue>
+#include <stack>
+
+void reverseQueue(queue<int> &input) {
+	// Write your code here
+    stack <int> q;
+    while(!input.empty()){
+        q.push(input.front());
+        input.pop();
+    }
+    while(!q.empty()){
+        input.push(q.top());
+        q.pop();
+    }
+}
+
+
+// Check redundant brackets
+
+#include <stack>
+
+bool checkRedundantBrackets(string expression) {
+	// Write your code here
+    
+    stack <int> st;
+    int count = 0;
+    
+    for (int i=0; i<expression.length(); i++){
+        if (expression[i] != 41){
+            st.push(expression[i]);
+        }else{
+            while(st.top() != 40){
+                count ++;
+                st.pop();
+            }
+            if (count == 0 || count == 1){
+                return true;
+            }
+            count = 0;
+            st.pop();
+        }
+    }return false;
+}
