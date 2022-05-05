@@ -30,3 +30,28 @@ vector<int> nextGreaterElement(vector<int> input) {
     reverse(arr.begin(), arr.end());
     return arr;
 }
+
+
+// k-largest element
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+vector<int> kLargest(int arr[], int n, int k) {
+    // Write your code here
+    vector<int> ans;
+    vector<int> res;
+    
+    for (int i = 0; i<n; i++){
+        ans.push_back(arr[i]);
+    }
+    
+    sort(ans.begin(), ans.end());
+    
+    for (int i = n-k; i<n; i++){
+        res.push_back(ans[i]);
+    }
+    
+    return res;
+}
